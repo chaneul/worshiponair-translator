@@ -1,7 +1,7 @@
 {
   "name": "worshiponair-translator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app/index.tsx",
   "scripts": {
     "dev": "webpack serve --mode development"
   },

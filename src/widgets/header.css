@@ -1,0 +1,59 @@
+.stream-header {
+  position: relative;
+  padding: 18px 22px 20px;
+  border-radius: 16px;
+  background: #0e0e12;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: #fff;
+}
+
+/* top row sits above the titles so the dropdown menu wins the stack */
+.stream-header__top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* LIVE badge */
+.stream-header__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #1a1a20;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* titles */
+.stream-header__titles {
+  position: relative;
+  z-index: 1;
+  margin-top: 22px;
+}
+
+.stream-header__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.stream-header__subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8b8b95;
+}
