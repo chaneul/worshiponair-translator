@@ -1,4 +1,5 @@
-import Header from "../widgets/Header";
+import Header from "../widgets/header/Header";
+import Transcript from "../widgets/transcript/Transcript";
 import "./mainPage.css";
 
 export default function Main() {
@@ -6,7 +7,7 @@ export default function Main() {
     <>
       <div className="container">
         <Header />
-        <p style={{ color: "white" }}>Listening</p>
+        <Transcript />
       </div>
     </>
   );

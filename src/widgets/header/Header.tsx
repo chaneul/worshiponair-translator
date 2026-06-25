@@ -1,4 +1,4 @@
-import LanguageSelector from "../features/language/LanguageDropdown";
+import LanguageSelector from "../../features/language/LanguageDropdown";
 import "./header.css";
 
 export default function Header() {

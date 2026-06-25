@@ -1,0 +1,48 @@
+.sti__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sti-color);
+  width: 22px;
+  height: 30px;
+}
+
+/* --- Listening: equalizer bars --- */
+.sti__bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 14px;
+}
+.sti__bars span {
+  width: 2px;
+  height: 100%;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: center;
+  animation: sti-eq 0.9s ease-in-out infinite;
+}
+.sti__bars span:nth-child(1) {
+  animation-delay: -0.7s;
+}
+.sti__bars span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+.sti__bars span:nth-child(3) {
+  animation-delay: -0.5s;
+}
+.sti__bars span:nth-child(4) {
+  animation-delay: -0.1s;
+}
+.sti__bars span:nth-child(5) {
+  animation-delay: -0.4s;
+}
+@keyframes sti-eq {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
