@@ -1,0 +1,43 @@
+import { useEffect, useState } from "react";
+import LiveTranslation from "./LiveTranslationDisplay";
+
+const lines: string[] = [
+  "좋은 아침입니다, 성도 여러분. 오늘 주님 앞에 나아가며 우리의 마음을 엽시다.",
+  "저와 함께 시편 23편을 펴 봅시다.",
+  "여호와는 나의 목자시니 내게 부족함이 없으리로다.",
+  "그가 나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하시는도다.",
+  "성도 여러분, 오늘 여러분이 무엇을 지나고 있든지, 여러분은 혼자가 아닙니다.",
+  "그러므로 믿음과 감사함으로 그분의 약속을 굳게 붙잡읍시다.",
+
+  "테스트 1",
+  "테스트 2",
+  "테스트 3",
+  "테스트 4",
+  "테스트 5",
+  "테스트 6",
+  "테스트 7",
+  "테스트 8",
+  "테스트 9",
+  "테스트 10",
+];
+
+export default function LiveTranslationSource() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key.toLowerCase() === "e") {
+        setCount((prev) => Math.min(prev + 1, lines.length));
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  return (
+    <div className="live-translation-source">
+      <LiveTranslation lines={lines.slice(0, count)} />
+    </div>
+  );
+}

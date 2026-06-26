@@ -11,6 +11,7 @@
     Roboto,
     sans-serif;
   color: #fff;
+  height: 13vh;
 }
 
 /* top row sits above the titles so the dropdown menu wins the stack */
