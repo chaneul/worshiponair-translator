@@ -3,19 +3,19 @@ import "./header.css";
 
 export default function Header() {
   return (
-    <header className="stream-header">
-      <div className="stream-header__top">
-        <span className="stream-header__live">
-          <span className="stream-header__live-dot" aria-hidden="true" />
+    <header className="header">
+      <div className="header-top">
+        <span className="header-live">
+          <span className="header-live-dot" aria-hidden="true" />
           LIVE
         </span>
 
         <LanguageSelector />
       </div>
 
-      <div className="stream-header__titles">
-        <h1 className="stream-header__title">Sunday Service</h1>
-        <p className="stream-header__subtitle">
+      <div className="header-titles">
+        <h1 className="header-title">Sunday Service</h1>
+        <p className="header-subtitle">
           Pastor James Carter · Grace Community Church
         </p>
       </div>

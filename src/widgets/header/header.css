@@ -1,4 +1,4 @@
-.stream-header {
+.header {
   position: relative;
   padding: 18px 22px 20px;
   border-radius: 16px;
@@ -15,7 +15,7 @@
 }
 
 /* top row sits above the titles so the dropdown menu wins the stack */
-.stream-header__top {
+.header-top {
   position: relative;
   z-index: 2;
   display: flex;
@@ -25,7 +25,7 @@
 }
 
 /* LIVE badge */
-.stream-header__live {
+.header-live {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -37,7 +37,7 @@
   letter-spacing: 0.08em;
 }
 
-.stream-header__live-dot {
+.header-live-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -59,13 +59,13 @@
 }
 
 /* titles */
-.stream-header__titles {
+.header-titles {
   position: relative;
   z-index: 1;
   margin-top: 22px;
 }
 
-.stream-header__title {
+.header-title {
   margin: 0;
   font-size: 24px;
   font-weight: 800;
@@ -73,7 +73,7 @@
   line-height: 1.15;
 }
 
-.stream-header__subtitle {
+.header-subtitle {
   margin: 6px 0 0;
   font-size: 14px;
   font-weight: 400;

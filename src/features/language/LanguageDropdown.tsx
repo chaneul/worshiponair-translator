@@ -19,7 +19,7 @@ export default function LanguageSelector() {
     <div className="lang" ref={wrapperRef}>
       <button
         type="button"
-        className="lang__trigger"
+        className="lang-trigger"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
@@ -29,12 +29,12 @@ export default function LanguageSelector() {
       </button>
 
       {open && (
-        <ul className="lang__menu" role="listbox" aria-label="Language">
+        <ul className="lang-menu" role="listbox" aria-label="Language">
           {LANGUAGES.map((lang) => (
             <li key={lang} role="option" aria-selected={lang === selected}>
               <button
                 type="button"
-                className="lang__option"
+                className="lang-option"
                 onClick={() => {
                   if (lang !== selected) {
                     setSelected(lang);
