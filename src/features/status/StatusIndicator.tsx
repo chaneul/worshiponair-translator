@@ -1,5 +1,5 @@
 import { CONFIG } from "./statuses";
-import { useStatusCycle } from "./status-cycle";
+import { useStatusCycle } from "./useStatusCycle";
 import { Glyph } from "./Glyph";
 import "./Status.css";
 

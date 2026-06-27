@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export function useAddText(
+export function useRevealLine(
   setCount: React.Dispatch<React.SetStateAction<number>>,
   lines: string[],
 ) {

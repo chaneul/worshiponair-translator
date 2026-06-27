@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LiveTranslation from "./LiveTranslationDisplay";
-import { lines } from "./source";
-import { useAddText } from "./addSentence";
+import { sermonLines } from "./sermonLines";
+import { useRevealLine } from "./useRevealLine";
+import { useLanguage } from "../../shared/lib/LanguageContext";
 
 export default function LiveTranslationSource() {
+  const { language } = useLanguage();
   const [count, setCount] = useState(0);
 
+  const activeLines = sermonLines[language];
+
   // press e to add line
-  useAddText(setCount, lines);
+  useRevealLine(setCount, activeLines);
 
   return (
     <div className="live-translation-source">
-      <LiveTranslation lines={lines.slice(0, count)} />
+      <LiveTranslation lines={activeLines.slice(0, count)} />
     </div>
   );
 }

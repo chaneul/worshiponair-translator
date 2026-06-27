@@ -3,12 +3,13 @@ import "./languageDropdown.css";
 import GlobeIcon from "../../shared/icons/GlobeIcon";
 import DownIcon from "../../shared/icons/DownIcon";
 import CheckIcon from "../../shared/icons/CheckIcon";
-import { LANGUAGES, Language } from "../../shared/languages";
+import { LANGUAGES } from "../../shared/lib/languages";
 import { useDismiss } from "../../shared/lib/useDismiss";
+import { useLanguage } from "../../shared/lib/LanguageContext";
 
 export default function LanguageSelector() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<Language>("Korean");
+  const { language: selected, setLanguage } = useLanguage();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Close on outside click or Escape
@@ -37,8 +38,7 @@ export default function LanguageSelector() {
                 className="lang-option"
                 onClick={() => {
                   if (lang !== selected) {
-                    setSelected(lang);
-                    console.log("Language Changed");
+                    setLanguage(lang);
                   }
                   setOpen(false);
                 }}

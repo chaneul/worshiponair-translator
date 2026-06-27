@@ -14,11 +14,9 @@ export default function LiveTranslationDisplay({
   return (
     <div className="text-display" ref={containerRef}>
       {lines.map((line, index) => (
-        <>
-          <p key={index} className="divider">
-            {line}
-          </p>
-        </>
+        <p key={index} className="divider">
+          {line}
+        </p>
       ))}
       <StatusIndicator />
     </div>

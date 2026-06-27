@@ -96,10 +96,6 @@
 .lang-option:hover {
   background: rgba(255, 255, 255, 0.06);
 }
-.lang-option:focus-visible {
-  outline: 2px solid #8b5cf6;
-  outline-offset: -2px;
-}
 
 /* selected row check uses the brand purple */
 .lang-option svg {
