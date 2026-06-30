@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useTextSize } from "../../shared/lib/TextSizeContext";
 import "./textResizer.css";
 
-type TextSize = "small" | "medium" | "large";
-
 export default function TextResizer() {
-  const [size, setSize] = useState<TextSize>("small");
+  const { size, setSize } = useTextSize();
   return (
-    <div className="container1">
+    <div className="text-resizer">
       <button
         type="button"
         aria-label="Small text"

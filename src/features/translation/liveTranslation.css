@@ -5,7 +5,6 @@
 
 .text-display {
   background: none;
-  color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -21,6 +20,16 @@
   -ms-overflow-style: none;
 }
 
+.text-display.-small {
+  --divider-font-size: 1rem;
+}
+.text-display.-medium {
+  --divider-font-size: 1.25rem;
+}
+.text-display.-large {
+  --divider-font-size: 1.625rem;
+}
+
 .text-display::-webkit-scrollbar {
   display: none;
 }
@@ -29,8 +38,15 @@
   margin: 0;
   padding: 1rem 0;
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: var(--divider-font-size);
   font-weight: 600;
   line-height: 1.4;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.original-text {
+  font-size: calc(var(--divider-font-size) * 0.75);
+  opacity: 0.5;
+  font-style: italic;
+  font-weight: 400;
 }
