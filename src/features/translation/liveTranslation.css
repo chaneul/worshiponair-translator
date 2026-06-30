@@ -17,13 +17,12 @@
   min-height: 0;
   overflow-y: auto;
 
-  /* Hide scrollbar, keep scrolling */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* old Edge / IE */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .text-display::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, newer Edge */
+  display: none;
 }
 
 .divider {

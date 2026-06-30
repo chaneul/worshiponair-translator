@@ -14,3 +14,8 @@ body {
   flex-direction: column;
   overflow: hidden;
 }
+
+.footer {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
