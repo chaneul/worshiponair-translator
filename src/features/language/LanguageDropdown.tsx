@@ -31,7 +31,7 @@ export default function LanguageSelector() {
 
       {open && (
         <ul className="lang-menu" role="listbox" aria-label="Language">
-          {LANGUAGES.map((lang) => (
+          {LANGUAGES.filter((lang) => lang !== "English").map((lang) => (
             <li key={lang} role="option" aria-selected={lang === selected}>
               <button
                 type="button"
