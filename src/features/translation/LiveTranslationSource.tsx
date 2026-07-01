@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LiveTranslation from "./LiveTranslationDisplay";
 import { sermonLines } from "./sermonLines";
 import { useRevealLine } from "./useRevealLine";
@@ -15,7 +15,10 @@ export default function LiveTranslationSource() {
 
   return (
     <div className="live-translation-source">
-      <LiveTranslation lines={activeLines.slice(0, count)} />
+      <LiveTranslation
+        lines={activeLines.slice(0, count)}
+        originalLines={sermonLines.English.slice(0, count)}
+      />
     </div>
   );
 }

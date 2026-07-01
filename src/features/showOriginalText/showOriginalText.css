@@ -12,3 +12,7 @@
   font-size: 15px;
   font-weight: 500;
 }
+
+.toggleOriginalText.active {
+  background-color: #6c5ce7;
+}
