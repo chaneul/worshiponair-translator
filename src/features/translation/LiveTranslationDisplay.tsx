@@ -31,6 +31,18 @@ export default function LiveTranslationDisplay({
         </p>
       ))}
       <StatusIndicator />
+      {showOriginal && originalLines.length > lines.length && (
+        <>
+          {originalLines.slice(lines.length).map((original, index) => (
+            <p key={`extra-${lines.length + index}`} className="divider">
+              <span className="original-container">
+                <span className="original-badge">EN</span>
+                <span className="original-text"> {original}</span>
+              </span>
+            </p>
+          ))}
+        </>
+      )}
     </div>
   );
 }

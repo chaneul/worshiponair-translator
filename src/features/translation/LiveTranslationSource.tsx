@@ -17,7 +17,7 @@ export default function LiveTranslationSource() {
     <div className="live-translation-source">
       <LiveTranslation
         lines={activeLines.slice(0, count)}
-        originalLines={sermonLines.English.slice(0, count)}
+        originalLines={sermonLines.English.slice(0, count + 1)}
       />
     </div>
   );
