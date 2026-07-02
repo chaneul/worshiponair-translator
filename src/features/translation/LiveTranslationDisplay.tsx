@@ -1,5 +1,4 @@
 import { useAutoScroll } from "./useAutoScroll";
-import { StatusIndicator } from "../../features/status/StatusIndicator";
 import { useTextSize } from "../../shared/lib/TextSizeContext";
 import { useShowOriginal } from "../../shared/lib/ShowOriginalContext";
 import "./liveTranslation.css";
@@ -7,11 +6,13 @@ import "./liveTranslation.css";
 interface LiveTranslationProps {
   lines?: string[];
   originalLines?: string[];
+  children: React.ReactNode;
 }
 
 export default function LiveTranslationDisplay({
   lines = [],
   originalLines = [],
+  children,
 }: LiveTranslationProps) {
   const containerRef = useAutoScroll(lines);
   const { size } = useTextSize();
@@ -30,7 +31,7 @@ export default function LiveTranslationDisplay({
           {line}
         </p>
       ))}
-      <StatusIndicator />
+      {children}
       {showOriginal && originalLines.length > lines.length && (
         <>
           {originalLines.slice(lines.length).map((original, index) => (
