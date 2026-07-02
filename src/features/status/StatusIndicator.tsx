@@ -13,7 +13,7 @@ export function StatusIndicator() {
       style={{ ["--sti-color" as string]: color }}
       onClick={next}
     >
-      <span className="sti__label">{label}</span>
+      <span className="sti-label">{label}</span>
       <Glyph status={active} />
     </span>
   );

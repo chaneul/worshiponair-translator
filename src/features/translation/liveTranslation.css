@@ -36,7 +36,7 @@
 
 .divider {
   margin: 0;
-  padding: 1rem 0;
+  padding: 0rem 0 1rem 0;
   color: #ffffff;
   font-size: var(--divider-font-size);
   font-weight: 600;
@@ -52,7 +52,6 @@
   display: flex;
   align-items: flex-start;
   gap: 0.3em;
-  margin-top: 0.4em;
   margin-bottom: 1rem;
 }
 
