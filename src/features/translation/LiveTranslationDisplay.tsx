@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useAutoScroll } from "./useAutoScroll";
 import { useTextSize } from "../../shared/lib/TextSizeContext";
 import { useShowOriginal } from "../../shared/lib/ShowOriginalContext";
@@ -18,32 +19,30 @@ export default function LiveTranslationDisplay({
   const { size } = useTextSize();
   const { showOriginal } = useShowOriginal();
 
+  const lastIndex = originalLines.length - 1;
+
   return (
     <div className={`text-display -${size}`} ref={containerRef}>
-      {lines.map((line, index) => (
-        <p key={index} className="divider">
-          {showOriginal && (
-            <span className="original-container">
-              <span className="original-badge">EN</span>
-              <span className="original-text"> {originalLines[index]}</span>
-            </span>
-          )}
-          {line}
-        </p>
-      ))}
-      {children}
-      {showOriginal && originalLines.length > lines.length && (
-        <>
-          {originalLines.slice(lines.length).map((original, index) => (
-            <p key={`extra-${lines.length + index}`} className="divider">
+      {originalLines.map((originalLine, index) => (
+        <Fragment key={index}>
+          {index === lastIndex && children}
+          <p className="divider">
+            {showOriginal && originalLines[index] && (
               <span className="original-container">
                 <span className="original-badge">EN</span>
-                <span className="original-text"> {original}</span>
+                <span className="original-text"> {originalLine}</span>
               </span>
-            </p>
-          ))}
-        </>
-      )}
+            )}
+            {!showOriginal && !lines[index] && (
+              <span className="original-container">
+                <span className="original-text"> Receiving translation… </span>
+              </span>
+            )}
+            {lines[index]}
+          </p>
+        </Fragment>
+      ))}
+      {originalLines.length === 0 && children}
     </div>
   );
 }
