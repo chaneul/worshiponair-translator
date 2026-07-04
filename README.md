@@ -31,7 +31,7 @@ npm run dev
    - Listening
    - Translating
    - Back to Live
-3. Press **E** to display the next translated transcript line.
+3. Press **A** to display the next translated transcript line.
 
 ---
 
@@ -40,11 +40,11 @@ npm run dev
 | Action                    | Control                    |
 | ------------------------- | -------------------------- |
 | Cycle status              | Click the status indicator |
-| Show next transcript line | `E`                        |
+| Show next transcript line | `A`                        |
 
 ---
 
 ## Notes
 
 - The **Status** component and the **Transcript** component are currently independent and are not synchronized.
-- Transcript progression is currently manual using the **E** key.
+- Transcript progression is currently manual using the **A** key.

@@ -6,7 +6,7 @@ export function useRevealLine(
 ) {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key.toLowerCase() === "e") {
+      if (event.key.toLowerCase() === "a") {
         setCount((prev) => Math.min(prev + 1, lines.length));
       }
     }
