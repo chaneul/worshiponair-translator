@@ -15,8 +15,8 @@ export default function LiveTranslationSource({
   const activeLines = sermonLines[language];
 
   // press e to add line
-  useRevealLine(setTranslatedLineCount, activeLines);
-  useRevealLine(setOriginalLineCount, sermonLines.English);
+  useRevealLine(setOriginalLineCount, sermonLines.English, 0);
+  useRevealLine(setTranslatedLineCount, activeLines, 1);
 
   return (
     <div className="live-translation-source">

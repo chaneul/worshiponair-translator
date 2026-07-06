@@ -24,25 +24,26 @@ export default function LiveTranslationDisplay({
   return (
     <div className={`text-display -${size}`} ref={containerRef}>
       {originalLines.map((originalLine, index) => (
-        <Fragment key={index}>
-          {index === lastIndex && children}
-          <p className="divider">
-            {showOriginal && originalLines[index] && (
-              <span className="original-container">
-                <span className="original-badge">EN</span>
-                <span className="original-text"> {originalLine}</span>
-              </span>
-            )}
-            {!showOriginal && !lines[index] && (
-              <span className="original-container">
-                <span className="original-text"> Receiving translation… </span>
-              </span>
-            )}
-            {lines[index]}
-          </p>
-        </Fragment>
+        <p
+          key={index}
+          className="divider"
+          style={index === lastIndex ? { order: 1 } : undefined}
+        >
+          {showOriginal && originalLines[index] && (
+            <span className="original-container">
+              <span className="original-badge">EN</span>
+              <span className="original-text"> {originalLine}</span>
+            </span>
+          )}
+          {!showOriginal && !lines[index] && (
+            <span className="original-container">
+              <span className="original-text"> Receiving translation… </span>
+            </span>
+          )}
+          {lines[index]}
+        </p>
       ))}
-      {originalLines.length === 0 && children}
+      {children}
     </div>
   );
 }

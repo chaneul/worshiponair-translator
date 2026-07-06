@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { CONFIG } from "./statuses";
 import { useStatusCycle } from "./useStatusCycle";
 import { Glyph } from "./Glyph";
@@ -8,11 +9,7 @@ export function StatusIndicator() {
   const { label, color } = CONFIG[active];
 
   return (
-    <span
-      className={"sti"}
-      style={{ ["--sti-color" as string]: color }}
-      onClick={next}
-    >
+    <span className={"sti"} style={{ ["--sti-color" as string]: color }}>
       <span className="sti-label">{label}</span>
       <Glyph status={active} />
     </span>
