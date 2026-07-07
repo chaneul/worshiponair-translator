@@ -1,4 +1,5 @@
 import LanguageSelector from "../../features/language/LanguageDropdown";
+import { PulseDot } from "../../shared/icons/pulseDot/PulseDot";
 import "./header.css";
 
 export default function Header() {
@@ -6,7 +7,7 @@ export default function Header() {
     <header className="header">
       <div className="header-top">
         <span className="header-live">
-          <span className="header-live-dot" aria-hidden="true" />
+          <PulseDot />
           LIVE
         </span>
 

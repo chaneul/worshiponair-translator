@@ -1,11 +1,10 @@
-import { useEffect } from "react";
 import { CONFIG } from "./statuses";
 import { useStatusCycle } from "./useStatusCycle";
 import { Glyph } from "./Glyph";
 import "./Status.css";
 
 export function StatusIndicator() {
-  const { active, next, setActive } = useStatusCycle("live");
+  const { active } = useStatusCycle("live");
   const { label, color } = CONFIG[active];
 
   return (

@@ -17,5 +17,6 @@ export function useStatusCycle(initial: IndicatorStatus = "live") {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [next]);
+
   return { active, next, setActive };
 }
