@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { giveLine } from "./lineSource";
+import { Language } from "../../shared/lib/languages";
 
 export function useRevealLine(
-  setCount: React.Dispatch<React.SetStateAction<number>>,
+  language: Language,
   lines: string[],
   temp: number,
 ) {
@@ -12,9 +14,9 @@ export function useRevealLine(
       if (event.key.toLowerCase() === "a") {
         setPhase((prevPhase) => {
           if (prevPhase === 0 && temp === 0) {
-            setCount((c) => Math.min(c + 1, lines.length));
+            lines.push(giveLine(language, lines.length));
           } else if (prevPhase === 1 && temp === 1) {
-            setCount((c) => Math.min(c + 1, lines.length));
+            lines.push(giveLine(language, lines.length));
           }
           if (prevPhase === 2) {
             return 0;

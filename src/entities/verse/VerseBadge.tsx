@@ -3,9 +3,9 @@ import "./verseBadge.css";
 
 export default function VerseBadge({ reference }: { reference: string }) {
   return (
-    <div className="verse-badge">
+    <span className="verse-badge">
       <BibleIcon />
       <span>{reference}</span>
-    </div>
+    </span>
   );
 }
