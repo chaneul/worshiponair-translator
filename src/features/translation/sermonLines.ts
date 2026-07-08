@@ -56,3 +56,8 @@ export const sermonLines: Record<Language, string[]> = {
     "Test 10",
   ],
 };
+
+export const verseReferences: Record<number, string> = {
+  2: "Psalm 23:1",
+  3: "Psalm 23:2",
+};

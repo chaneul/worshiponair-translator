@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LiveTranslationDisplay from "./LiveTranslationDisplay";
-import { sermonLines } from "./sermonLines";
+import { sermonLines, verseReferences } from "./sermonLines";
 import { useRevealLine } from "./useRevealLine";
 import { useLanguage } from "../../shared/lib/LanguageContext";
 
@@ -23,6 +23,7 @@ export default function LiveTranslationSource({
       <LiveTranslationDisplay
         lines={activeLines.slice(0, translatedLineCount)}
         originalLines={sermonLines.English.slice(0, originalLineCount)}
+        verseReferences={verseReferences}
       >
         {children}
       </LiveTranslationDisplay>

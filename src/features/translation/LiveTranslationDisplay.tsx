@@ -1,18 +1,20 @@
-import { Fragment } from "react";
 import { useAutoScroll } from "./useAutoScroll";
 import { useTextSize } from "../../shared/lib/TextSizeContext";
 import { useShowOriginal } from "../../shared/lib/ShowOriginalContext";
+import VerseBadge from "../../entities/verse/VerseBadge";
 import "./liveTranslation.css";
 
 interface LiveTranslationProps {
   lines?: string[];
   originalLines?: string[];
+  verseReferences?: Record<number, string>;
   children: React.ReactNode;
 }
 
 export default function LiveTranslationDisplay({
   lines = [],
   originalLines = [],
+  verseReferences = {},
   children,
 }: LiveTranslationProps) {
   const containerRef = useAutoScroll(lines);
@@ -29,6 +31,11 @@ export default function LiveTranslationDisplay({
           className="divider"
           style={index === lastIndex ? { order: 1 } : undefined}
         >
+          {verseReferences[index] && (
+            <span className="verse-badge-container">
+              <VerseBadge reference={verseReferences[index]} />
+            </span>
+          )}
           {showOriginal && originalLines[index] && (
             <span className="original-container">
               <span className="original-badge">EN</span>
