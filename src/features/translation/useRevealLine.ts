@@ -4,7 +4,9 @@ import { Language } from "../../shared/lib/languages";
 
 export function useRevealLine(
   language: Language,
-  setLines: React.Dispatch<React.SetStateAction<string[]>>,
+  setSermonLines: React.Dispatch<
+    React.SetStateAction<Record<Language, string[]>>
+  >,
   temp: number,
 ) {
   const phaseRef = useRef(0);
@@ -17,7 +19,11 @@ export function useRevealLine(
 
       const phase = phaseRef.current;
       if ((phase === 0 && temp === 0) || (phase === 1 && temp === 1)) {
-        setLines((prev) => [...prev, giveLine(langRef.current, prev.length)]);
+        const lang = langRef.current;
+        setSermonLines((prev) => ({
+          ...prev,
+          [lang]: [...prev[lang], giveLine(lang, prev[lang].length)],
+        }));
       }
       phaseRef.current = phase === 2 ? 0 : phase + 1;
     }

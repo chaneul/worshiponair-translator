@@ -62,3 +62,7 @@ export function giveLine(language: Language, index: number): string {
   if (index >= lines.length) return "(out of lines)";
   return lines[index];
 }
+
+export function giveLines(language: Language, count: number): string[] {
+  return allLines[language].slice(0, count);
+}
