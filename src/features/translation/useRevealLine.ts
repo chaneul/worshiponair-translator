@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { giveLine } from "./lineSource";
+import { giveLine, giveVerseReference } from "./lineSource";
 import { Language } from "../../shared/lib/languages";
+import { verseReferences } from "./sermonLines";
 
 export function useRevealLine(
   language: Language,
@@ -20,10 +21,15 @@ export function useRevealLine(
       const phase = phaseRef.current;
       if ((phase === 0 && temp === 0) || (phase === 1 && temp === 1)) {
         const lang = langRef.current;
-        setSermonLines((prev) => ({
-          ...prev,
-          [lang]: [...prev[lang], giveLine(lang, prev[lang].length)],
-        }));
+        setSermonLines((prev) => {
+          const index = prev[lang].length;
+          const ref = giveVerseReference(index);
+          if (ref !== null) verseReferences[index] = ref;
+          return {
+            ...prev,
+            [lang]: [...prev[lang], giveLine(lang, index)],
+          };
+        });
       }
       phaseRef.current = phase === 2 ? 0 : phase + 1;
     }

@@ -57,6 +57,11 @@ const allLines: Record<Language, string[]> = {
   ],
 };
 
+const verseReferences: Record<number, string> = {
+  2: "Psalm 23:1",
+  3: "Psalm 23:2",
+};
+
 export function giveLine(language: Language, index: number): string {
   const lines = allLines[language];
   if (index >= lines.length) return "(out of lines)";
@@ -65,4 +70,8 @@ export function giveLine(language: Language, index: number): string {
 
 export function giveLines(language: Language, count: number): string[] {
   return allLines[language].slice(0, count);
+}
+
+export function giveVerseReference(index: number): string | null {
+  return verseReferences[index] ?? null;
 }

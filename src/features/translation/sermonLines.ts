@@ -6,7 +6,4 @@ export const sermonLines: Record<Language, string[]> = {
   French: [],
 };
 
-export const verseReferences: Record<number, string> = {
-  2: "Psalm 23:1",
-  3: "Psalm 23:2",
-};
+export const verseReferences: Record<number, string> = {};
