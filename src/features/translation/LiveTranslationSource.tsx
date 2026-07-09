@@ -1,3 +1,4 @@
+import { useState } from "react";
 import LiveTranslationDisplay from "./LiveTranslationDisplay";
 import { sermonLines, verseReferences } from "./sermonLines";
 import { useRevealLine } from "./useRevealLine";
@@ -9,17 +10,18 @@ export default function LiveTranslationSource({
   children: React.ReactNode;
 }) {
   const { language } = useLanguage();
-  const activeLines = sermonLines[language];
+  const [originalLines, setLines] = useState<string[]>([]);
+  const [activeLines, setActiveLines] = useState<string[]>([]);
 
   // press a to add line
-  useRevealLine("English", sermonLines.English, 0);
-  useRevealLine(language, activeLines, 1);
+  useRevealLine("English", setLines, 0);
+  useRevealLine(language, setActiveLines, 1);
 
   return (
     <div className="live-translation-source">
       <LiveTranslationDisplay
         lines={activeLines}
-        originalLines={sermonLines.English}
+        originalLines={originalLines}
         verseReferences={verseReferences}
       >
         {children}

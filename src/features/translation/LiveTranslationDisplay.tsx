@@ -18,13 +18,20 @@ export default function LiveTranslationDisplay({
   children,
 }: LiveTranslationProps) {
   const containerRef = useAutoScroll(lines);
+  const containerRef2 = useAutoScroll(originalLines);
   const { size } = useTextSize();
   const { showOriginal } = useShowOriginal();
 
   const lastIndex = originalLines.length - 1;
 
   return (
-    <div className={`text-display -${size}`} ref={containerRef}>
+    <div
+      className={`text-display -${size}`}
+      ref={(node) => {
+        containerRef.current = node;
+        containerRef2.current = node;
+      }}
+    >
       {originalLines.map((originalLine, index) => (
         <p
           key={index}
