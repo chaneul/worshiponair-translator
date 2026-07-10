@@ -23,11 +23,14 @@ export function useRevealLine(
         const lang = langRef.current;
         setSermonLines((prev) => {
           const index = prev[lang].length;
-          const ref = giveVerseReference(index);
-          if (ref !== null) verseReferences[index] = ref;
+          const verseRef = giveVerseReference(index);
+          const newLine = giveLine(lang, index);
+
+          if (verseRef !== null) verseReferences[index] = verseRef;
+          if (newLine === null) return prev;
           return {
             ...prev,
-            [lang]: [...prev[lang], giveLine(lang, index)],
+            [lang]: [...prev[lang], newLine],
           };
         });
       }
