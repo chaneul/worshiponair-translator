@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import LiveTranslationDisplay from "./LiveTranslationDisplay";
 import { sermonLines, verseReferences } from "./sermonLines";
 import { useRevealLine } from "./useRevealLine";
-import { giveLines } from "./lineSource";
 import { useLanguage } from "../../shared/lib/LanguageContext";
 import { Language } from "../../shared/lib/languages";
+import { useSyncOnLanguageChange } from "./useSyncOnLanguageChange";
 
 export default function LiveTranslationSource({
   children,
@@ -15,23 +15,11 @@ export default function LiveTranslationSource({
   const [sermonLine, setSermonLines] =
     useState<Record<Language, string[]>>(sermonLines);
 
-  const prevLanguageRef = useRef<Language>(language);
-
   // press a to add line
   useRevealLine("English", setSermonLines, 0);
   useRevealLine(language, setSermonLines, 1);
 
-  useEffect(() => {
-    const prevLanguage = prevLanguageRef.current;
-    prevLanguageRef.current = language;
-
-    setSermonLines((prev) => {
-      const revealed = prev[prevLanguage].length;
-
-      if (prev[language].length >= revealed) return prev;
-      return { ...prev, [language]: giveLines(language, revealed) };
-    });
-  }, [language]);
+  useSyncOnLanguageChange(language, setSermonLines);
 
   return (
     <div className="live-translation-source">
