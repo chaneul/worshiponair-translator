@@ -9,7 +9,7 @@ import { useLanguage } from "../../shared/lib/LanguageContext";
 
 export default function LanguageSelector() {
   const [open, setOpen] = useState(false);
-  const { language: selected, setLanguage } = useLanguage();
+  const { language: selected, setLanguage, originalLanguage } = useLanguage();
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   // Close on outside click or Escape
@@ -31,7 +31,7 @@ export default function LanguageSelector() {
 
       {open && (
         <ul className="lang-menu" role="listbox" aria-label="Language">
-          {LANGUAGES.filter((lang) => lang !== "English").map((lang) => (
+          {LANGUAGES.filter((lang) => lang !== originalLanguage).map((lang) => (
             <li key={lang} role="option" aria-selected={lang === selected}>
               <button
                 type="button"

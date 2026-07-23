@@ -12,7 +12,7 @@ export default function ShowOriginalText() {
       onClick={toggleShowOriginal}
     >
       <EyeIcon />
-      <span>English</span>
+      <span>Original</span>
     </button>
   );
 }

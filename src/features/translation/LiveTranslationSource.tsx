@@ -11,12 +11,12 @@ export default function LiveTranslationSource({
 }: {
   children: React.ReactNode;
 }) {
-  const { language } = useLanguage();
+  const { language, originalLanguage } = useLanguage();
   const [sermonLine, setSermonLines] =
     useState<Record<Language, string[]>>(sermonLines);
 
   // press a to add line
-  useRevealLine("English", setSermonLines, 0);
+  useRevealLine(originalLanguage, setSermonLines, 0);
   useRevealLine(language, setSermonLines, 1);
 
   useSyncOnLanguageChange(language, setSermonLines);
@@ -25,7 +25,7 @@ export default function LiveTranslationSource({
     <div className="live-translation-source">
       <LiveTranslationDisplay
         lines={sermonLine[language]}
-        originalLines={sermonLine["English"]}
+        originalLines={sermonLine[originalLanguage]}
         verseReferences={verseReferences}
       >
         {children}
